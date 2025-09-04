@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PropertApp.View.DetailsPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Aspect="AspectFill" Source="{Binding SelectedProperty.DefaultImage}" />
+        <Grid RowDefinitions="*, Auto">
+            <VerticalStackLayout x:Name="sideView">
+                <Grid x:Name="imagesView" WidthRequest = "80" VerticalOptions="Start" HorizontalOptions="End" Margin ="0,80,20,0">
+                    <Rectangle Fill="White" RadiusX="40" RadiusY="40" StrokeThickness="0" Opacity="0.9"/>
+                    <CollectionView Margin="0,10" ItemsSource="{Binding PropertyImages}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"
+                                    StrokeShape="RoundRectangle 30" StrokeThickness="0" Margin="0,0,0,10">
+                                    <Image Aspect="AspectFill" Source="{Binding .}" WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"/>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.Footer>
+                            <Border WidthRequest="60" HeightRequest="60" HorizontalOptions="Center"
+                                    BackgroundColor="#4C65FF" StrokeShape="RoundRectangle 30" StrokeThickness="0">
+                                <Label Text="{Binding MoreItems,StringFormat='+{0}'}" TextColor="White" FontSize="24" FontAttributes="Bold"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                        </CollectionView.Footer>
+                    </CollectionView>
+                </Grid>
+                <Grid x:Name="detailsBtn" HorizontalOptions="End" Margin="0,60,20,0">
+                    <Rectangle Fill="White" StrokeThickness="0" HeightRequest="115" WidthRequest="115"
+                               RadiusX="60" RadiusY="60" Opacity="0.9"/>
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="arrow.png" WidthRequest="15"/>
+                        <Label Text="Details" FontSize="20" TextColor="Black" Opacity="0.5"/>
+                    </VerticalStackLayout>
+                </Grid>
+                
+                
+            </VerticalStackLayout>
+            <Grid x:Name="popView" Grid.Row="1">
+                <Border BackgroundColor="White" StrokeShape="RoundRectangle 35,35,0,0" StrokeThickness="0" Opacity="0.9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid Padding="30">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding SelectedProperty.Address}" TextColor="Black" FontSize="28" FontAttributes="Bold" />
+                            <Label Text="{Binding SelectedProperty.Price, StringFormat='${0:###,###}' }" TextColor="Black" FontSize="28" />
+                            <Button x:Name="buyBtn" Text="Buy Now" BackgroundColor="#4C65FF" TextColor="White" FontSize="20" FontAttributes="Bold"
+                                    HeightRequest="50" WidthRequest="200" CornerRadius="25" HorizontalOptions="Start" Margin="0,20,0,0" />
+                            <ImageButton BackgroundColor="Transparent" Source="close.png" WidthRequest="40" HorizontalOptions="End" VerticalOptions="End"
+                                         Command="{Binding CloseCommand}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

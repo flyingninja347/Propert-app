@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PropertApp</name>
+    </assembly>
+    <members>
+        <member name="M:PropertyApp.ViewModel.BaseViewModel.OnPropertyChanged(System.String)">
+            <param name="propertyName">The name of the property that changed.</param>
+        </member>
+        <member name="M:PropertyApp.ViewModel.BaseViewModel.SetProperty``1(``0@,``0,System.String)">
+            <typeparam name="T">The type of the property.</typeparam>
+            <param name="backingStore">A reference to the private backing field for the property.</param>
+            <param name="value">The new value to set.</param>
+            <param name="propertyName">The name of the property. Automatically inferred.</param>
+            <returns>True if the value was changed, otherwise false.</returns>
+        </member>
+    </members>
+</doc>
