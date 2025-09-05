@@ -41,7 +41,7 @@
             <Grid x:Name="popView" Grid.Row="1">
                 <Border BackgroundColor="White" StrokeShape="RoundRectangle 35,35,0,0" StrokeThickness="0" Opacity="0.9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <Grid Padding="30">
-                        <VerticalStackLayout>
+                        <VerticalStackLayout x:Name="addressView">
                             <Label Text="{Binding SelectedProperty.Address}" TextColor="Black" FontSize="28" FontAttributes="Bold" />
                             <Label Text="{Binding SelectedProperty.Price, StringFormat='${0:###,###}' }" TextColor="Black" FontSize="28" />
                             <Button x:Name="buyBtn" Text="Buy Now" BackgroundColor="#4C65FF" TextColor="White" FontSize="20" FontAttributes="Bold"
